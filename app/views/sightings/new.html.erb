@@ -1,0 +1,13 @@
+<h1>Please add the details of your <%= @species.name %> sighting:</h1>
+
+<form action='species/sightings' method='post'>
+  <label for='date'>Date</label>
+  <input id='date' name='date' type='datetime'>
+  <label for='latitude'>Latitude</label>
+  <input id='latitude' name='latitude' type='float'>
+  <label for='longitude'>Longitude</label>
+  <input id='longitude' name='longitude' type='float'>
+  <label for='quantity'>Quantity</label>
+  <input id='quantity' name='quantity' type='integer'>
+  <button>Add sighting</button>
+</form>
