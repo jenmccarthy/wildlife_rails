@@ -9,4 +9,13 @@ class SpeciesController < ApplicationController
     render('species/new.html.erb')
   end
 
+  def create
+    @species = Species.new(:name => params[:name])
+    if @species.save
+      render('species/success.html.erb')
+    else
+      render('species/new.html.erb')
+    end
+  end
+
 end
