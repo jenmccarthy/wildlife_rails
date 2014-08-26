@@ -1,2 +1,14 @@
 <h1><%= @species.name %> Sightings!</h1>
 
+<ul>
+  <% @species.sightings.each do |sighting| %>
+    <li><%= sighting.date.strftime("%y/%m/%d") %></li>
+    <li><%= sighting.latitude %></li>
+    <li><%= sighting.longitude %></li>
+    <li><%= sighting.quantity %></li>
+
+  <% end %>
+</ul>
+
+<p>Click<a href='/species'> here</a> to return to the home page</p>
+<p>Click<a href='/species/<%= @species.id %>/sightings/new'> here</a> to return enter a new <%= @species.name %> sighting.</p>
