@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   match('species/new', {:via => :get, :to => 'species#new'})
   match('species', {:via => :post, :to => 'species#create'})
   match('species/:id/edit', {:via => :get, :to => 'species#edit'})
+  match('species/:id', {:via => [:patch, :put], :to => 'species#update'})
 end
