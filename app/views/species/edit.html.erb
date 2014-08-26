@@ -1,0 +1,11 @@
+<h1><%= @species.name %></h1>
+
+<form action='/species' method='post'>
+  <label for='species_name'>Name</label>
+  <input id='species_name' name='name' type='text' value='ex:Owl'>
+  <button>Edit your species</button>
+</form>
+
+<p>Click<a href='species'> here</a> to return to the home page</p>
+<p>Click<a href='species/new'> here</a> to add another species</p>
+<p>Click<a href='species'> here</a> to edit another species</p>
