@@ -1,0 +1,13 @@
+<h1>Wildlife Tracker</h1>
+
+<h4>Here are the species we have on file:</h4>
+
+<ul>
+  <% @species.each do |animal| %>
+    <li><%= animal.name %></li>
+  <% end %>
+</ul>
+
+<a href="species/new">
+  <p>Click here to enter a new species<p>
+</a>
