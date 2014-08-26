@@ -4,4 +4,6 @@ class Sighting < ActiveRecord::Base
   validates :longitude, :presence => true, :length => { minimum: 6, maximum: 10 }
   validates :species_id, :presence => true
   validates :quantity, :presence => true
+
+  belongs_to :species
 end

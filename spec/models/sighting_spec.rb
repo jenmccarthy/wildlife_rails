@@ -6,6 +6,7 @@ describe Sighting do
   it { should validate_presence_of :longitude }
   it { should validate_presence_of :species_id }
   it { should validate_presence_of :quantity }
+  it { should belong_to :species }
 
   it 'will ensure the correct length of latitude (min)' do
     test_sighting = Sighting.new({:date => '2014-08-26', :latitude => 12, :longitude => 11.012345, :quantity => 1, :species_id => 2})
