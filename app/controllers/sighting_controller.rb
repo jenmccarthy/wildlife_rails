@@ -25,10 +25,11 @@ class SightingController < ApplicationController
   def create
     if params[:region_id] == nil
       @species = Species.find(params[:species_id])
+      @sighting = @species.sightings.create(params[:sighting])
     elsif params[:species_id] == nil
       @region = Region.find(params[:region_id])
+      @sighting = @region.sightings.create(params[:sighting])
     end
-      @sighting = @species.sightings.create(params[:sighting])
       if @sighting.valid?
         render('sightings/success.html.erb')
       else

@@ -28,6 +28,8 @@
     <button>Add sighting</button>
   </form>
 
+  <p>Click <a href="/species/<%= @sighting.species.id %>/sightings">here</a> to see all the <%= @species.name %> sightings</p>
+
 <% elsif params[:species_id] == nil %>
 
 <h1>Please add the details of your <%= @region.name %> sighting:</h1>
@@ -49,5 +51,7 @@
     </select>
     <button>Add sighting</button>
   </form>
+
+  <p>Click <a href="/regions/<%= @sighting.region.id %>/sightings">here</a> to see all the <%= @region.name %> sightings</p>
 
 <% end %>
