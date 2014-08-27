@@ -5,4 +5,9 @@ class RegionController < ApplicationController
     render('regions/index.html.erb')
   end
 
+  def new
+    @region = Region.new
+    render('regions/new.html.erb')
+  end
+
 end
