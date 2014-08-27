@@ -6,11 +6,12 @@ class SpeciesController < ApplicationController
   end
 
   def new
+    @species = Species.new
     render('species/new.html.erb')
   end
 
   def create
-    @species = Species.new(params[:name])
+    @species = Species.new(params[:species])
     if @species.save
       render('species/success.html.erb')
     else

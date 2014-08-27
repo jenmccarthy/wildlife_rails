@@ -1,5 +1,14 @@
 <h1>Please enter new species:</h1>
 
+<% if @species.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @species.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action='/species' method='post'>
   <label for='species_name'>Name</label>
   <input id="species_name" name="species[name]" type="text" value="ex: Owl">

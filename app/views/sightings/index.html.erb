@@ -1,14 +1,23 @@
-<h1><%= @species.name %> Sightings!</h1>
+<h1><%= @species.name %> sightings!</h1>
 
-<ul>
-  <% @species.sightings.each do |sighting| %>
-    <li><%= sighting.date.strftime("%y/%m/%d") %></li>
-    <li><%= sighting.latitude %></li>
-    <li><%= sighting.longitude %></li>
-    <li><%= sighting.quantity %></li>
-
-  <% end %>
-</ul>
+<table cellpadding="7" cellspacing="7">
+  <tr>
+    <th>Sighting</th>
+    <th>Date</th>
+    <th>Quantity</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  <tr>
+    <% @species.sightings.each do |sighting| %>
+      <td><%= sighting.id %></td>
+      <td><%= sighting.date.strftime("%y/%m/%d") %></td>
+      <td><%= sighting.quantity %></td>
+      <td><%= sighting.latitude %></td>
+      <td><%= sighting.longitude %></td>
+    <% end %>
+  </tr>
+</table>
 
 <p>Click<a href='/species'> here</a> to return to the home page</p>
 <p>Click<a href='/species/<%= @species.id %>/sightings/new'> here</a> to return enter a new <%= @species.name %> sighting.</p>
