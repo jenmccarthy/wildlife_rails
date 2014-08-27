@@ -6,6 +6,6 @@ class Sighting < ActiveRecord::Base
   validates :quantity, :presence => true
 
   belongs_to :species
-  # belongs_to :region
+  belongs_to :region
 
 end
