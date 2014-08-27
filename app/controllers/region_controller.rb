@@ -33,4 +33,10 @@ class RegionController < ApplicationController
     end
   end
 
+  def destroy
+    @region = Region.find(params[:id])
+    @region.destroy
+    render('regions/destroy.html.erb')
+  end
+
 end
