@@ -7,14 +7,16 @@
     <th>Quantity</th>
     <th>Latitude</th>
     <th>Longitude</th>
+    <th>Update</th>
   </tr>
   <tr>
-    <% @species.sightings.each do |sighting| %>
-      <td><%= sighting.id %></td>
+    <% @species.sightings.each_with_index do |sighting, index| %>
+      <td><%= (index+1) %></td>
       <td><%= sighting.date.strftime("%y/%m/%d") %></td>
       <td><%= sighting.quantity %></td>
       <td><%= sighting.latitude %></td>
       <td><%= sighting.longitude %></td>
+      <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a></td>
     <% end %>
   </tr>
 </table>

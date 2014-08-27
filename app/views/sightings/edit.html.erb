@@ -1,0 +1,15 @@
+<h1><%= @sighting.species.name %></h1>
+<h2><%= @sighting.date.strftime('%Y/%m/%d') %></h2>
+
+<form action='/species/<%= @sighting.species_id %>/sightings/<%= @sighting.id %>' method='post'>
+  <input name="_method" type="hidden" value="patch">
+  <label for='date'>Date</label>
+  <input id='date' name='sighting[date]' type='datetime'>
+  <label for='latitude'>Latitude</label>
+  <input id='latitude' name='sighting[latitude]' type='float'>
+  <label for='longitude'>Longitude</label>
+  <input id='longitude' name='sighting[longitude]' type='float'>
+  <label for='quantity'>Quantity</label>
+  <input id='quantity' name='sighting[quantity]' type='integer'>
+  <button>Update Sighting</button>
+</form>
