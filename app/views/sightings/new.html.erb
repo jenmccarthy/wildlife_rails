@@ -18,5 +18,12 @@
   <input id='longitude' name='sighting[longitude]' type='float'>
   <label for='quantity'>Quantity</label>
   <input id='quantity' name='sighting[quantity]' type='integer'>
+  <label for='region'>Region</label>
+  <select name='dropdown'>
+    <!-- <option value="region"> -->
+    <% Region.all.each do |region| %>
+      <option value="region"><%= region.name %></option>
+    <% end %>
+  </select>
   <button>Add sighting</button>
 </form>

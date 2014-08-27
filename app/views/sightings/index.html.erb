@@ -17,9 +17,9 @@
       <td><%= sighting.quantity %></td>
       <td><%= sighting.latitude %></td>
       <td><%= sighting.longitude %></td>
+      <td><%= sighting.region %></td>
       <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a>
-          <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a>
-      </td>
+          <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a></td>
     </tr>
   <% end %>
 </table>
