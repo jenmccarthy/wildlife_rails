@@ -4,7 +4,7 @@
 
 <ul>
   <% @species.each do |species| %>
-    <li><%= species.name %>   <a href="/species/<%= species.id %>/edit">Edit</a>   <a href="/species/<%= species.id %>" data-method="delete" rel="nofollow">Delete</a>    <a href="/species/<%= species.id %>/sightings">Sighting</a></li>
+    <li><%= species.name %>   <a href="/species/<%= species.id %>/edit">Edit</a>   <a href="/species/<%= species.id %>" data-method="delete" rel="nofollow">Delete</a>    <a href="/species/<%= species.id %>/sightings/new">Sighting</a></li>
   <% end %>
 </ul>
 

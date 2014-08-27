@@ -4,7 +4,7 @@
 
 <ul>
   <% @region.each do |region| %>
-    <li><%= region.name %>   <a href="/regions/<%= region.id %>/edit">Edit</a>   <a href="/regions/<%= region.id %>" data-method="delete" rel="nofollow">Delete</a>    <a href="/region/<%= region.id %>/sightings">Sighting</a></li>
+    <li><%= region.name %>   <a href="/regions/<%= region.id %>/edit">Edit</a>   <a href="/regions/<%= region.id %>" data-method="delete" rel="nofollow">Delete</a>    <a href="/region/<%= region.id %>/sightings/new">Sighting</a></li>
   <% end %>
 </ul>
 

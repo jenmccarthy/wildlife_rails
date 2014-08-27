@@ -1,5 +1,3 @@
-<h1>Please add the details of your <%= @species.name %> sighting:</h1>
-
 <% if @sighting.errors.any? %>
   <h3>Please fix these errors:</h3>
   <ul>
@@ -9,20 +7,47 @@
   </ul>
 <% end %>
 
-<form action='/species/<%= @sighting.species.id %>/sightings' method='post'>
-  <label for='date'>Date</label>
-  <input id='date' name='sighting[date]' type='datetime'>
-  <label for='latitude'>Latitude</label>
-  <input id='latitude' name='sighting[latitude]' type='float'>
-  <label for='longitude'>Longitude</label>
-  <input id='longitude' name='sighting[longitude]' type='float'>
-  <label for='quantity'>Quantity</label>
-  <input id='quantity' name='sighting[quantity]' type='integer'>
-  <label for='region'>Region</label>
-  <select name='sighting[region_id]' id="region">
-    <% Region.all.each do |region| %>
-      <option value="<%= region.id %>"><%= region.name %></option>
-    <% end %>
-  </select>
-  <button>Add sighting</button>
-</form>
+<% if params[:region_id] == nil %>
+  <h1>Please add the details of your <%= @species.name %> sighting:</h1>
+
+  <form action='/species/<%= @sighting.species.id %>/sightings' method='post'>
+    <label for='date'>Date</label>
+    <input id='date' name='sighting[date]' type='datetime'>
+    <label for='latitude'>Latitude</label>
+    <input id='latitude' name='sighting[latitude]' type='float'>
+    <label for='longitude'>Longitude</label>
+    <input id='longitude' name='sighting[longitude]' type='float'>
+    <label for='quantity'>Quantity</label>
+    <input id='quantity' name='sighting[quantity]' type='integer'>
+    <label for='region'>Species</label>
+    <select name='sighting[region_id]' id="region">
+      <% Region.all.each do |region| %>
+        <option value="<%= region.id %>"><%= region.name %></option>
+      <% end %>
+    </select>
+    <button>Add sighting</button>
+  </form>
+
+<% elsif params[:species_id] == nil %>
+
+<h1>Please add the details of your <%= @region.name %> sighting:</h1>
+
+  <form action='/regions/<%= @sighting.region.id %>/sightings' method='post'>
+    <label for='date'>Date</label>
+    <input id='date' name='sighting[date]' type='datetime'>
+    <label for='latitude'>Latitude</label>
+    <input id='latitude' name='sighting[latitude]' type='float'>
+    <label for='longitude'>Longitude</label>
+    <input id='longitude' name='sighting[longitude]' type='float'>
+    <label for='quantity'>Quantity</label>
+    <input id='quantity' name='sighting[quantity]' type='integer'>
+    <label for='species'>Species</label>
+    <select name='sighting[species_id]' id="species">
+      <% Species.all.each do |species| %>
+        <option value="<%= species.id %>"><%= species.name %></option>
+      <% end %>
+    </select>
+    <button>Add sighting</button>
+  </form>
+
+<% end %>
