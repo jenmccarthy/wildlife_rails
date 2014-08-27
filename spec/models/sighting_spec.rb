@@ -18,14 +18,4 @@ describe Sighting do
     expect(test_sighting.save).to eq false
   end
 
-  it 'will only accept float type numbers for latitude' do
-    test_sighting = Sighting.new({:date => '2014-08-26', :latitude => "11", :longitude => 11.012345, :quantity => 1, :species_id => 2})
-    expect(test_sighting.save).to eq false
-  end
-
-  it 'will only accept float type numbers for latitude' do
-    test_sighting = Sighting.new({:date => '2014-08-26', :latitude => 11.012345, :longitude => 11.012345, :quantity => 1, :species_id => 2})
-    expect(test_sighting.save).to eq true
-  end
-
 end
