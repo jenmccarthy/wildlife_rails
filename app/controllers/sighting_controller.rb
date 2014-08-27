@@ -1,9 +1,15 @@
 class SightingController < ApplicationController
 
   def index
-    @species = Species.find(params[:species_id])
-    @sightings = Sighting.where(:species_id => @species.id)
-    render('sightings/index.html.erb')
+    if params[:region_id] == nil
+      @species = Species.find(params[:species_id])
+      @sightings = Sighting.where(:species_id => @species.id)
+      render('sightings/index.html.erb')
+    elsif params[:species_id] == nil
+      @region = Region.find(params[:region_id])
+      @sightings = Sighting.where(:region_id => @region.id)
+      render('sightings/index.html.erb')
+    end
   end
 
   def new

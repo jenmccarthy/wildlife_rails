@@ -1,28 +1,62 @@
+<% if params[:region_id] == nil %>
 <h1><%= @species.name %> sightings!</h1>
 
-<table cellpadding="7" cellspacing="7">
-  <tr>
-    <th>Sighting</th>
-    <th>Date</th>
-    <th>Quantity</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Region</th>
-    <th>Update</th>
-  </tr>
-  <% @species.sightings.each_with_index do |sighting, index| %>
+  <table cellpadding="7" cellspacing="7">
     <tr>
-      <td><%= (index+1) %></td>
-      <td><%= sighting.date.strftime("%y/%m/%d") %></td>
-      <td><%= sighting.quantity %></td>
-      <td><%= sighting.latitude %></td>
-      <td><%= sighting.longitude %></td>
-      <td><%= sighting.region %></td>
-      <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a>
-          <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a></td>
+      <th>Sighting</th>
+      <th>Date</th>
+      <th>Quantity</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Region</th>
+      <th>Update</th>
     </tr>
-  <% end %>
-</table>
+    <% @species.sightings.each_with_index do |sighting, index| %>
+      <tr>
+        <td><%= (index+1) %></td>
+        <td><%= sighting.date.strftime("%y/%m/%d") %></td>
+        <td><%= sighting.quantity %></td>
+        <td><%= sighting.latitude %></td>
+        <td><%= sighting.longitude %></td>
+        <td><%= sighting.region.name %></td>
+        <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a>
+            <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a></td>
+      </tr>
+    <% end %>
+  </table>
 
-<p>Click <a href='/species'>here</a> to return to the home page</p>
-<p>Click <a href='/species/<%= @species.id %>/sightings/new'>here</a> to enter a new <%= @species.name %> sighting.</p>
+  <p>Click <a href='/'>here</a> to return to the home page</p>
+  <p>Click <a href='/species/<%= @species.id %>/sightings/new'>here</a> to enter a new <%= @species.name %> sighting.</p>
+
+
+<% elsif params[:species_id] == nil %>
+<h1><%= @region.name %> sightings!</h1>
+
+  <table cellpadding="7" cellspacing="7">
+    <tr>
+      <th>Sighting</th>
+      <th>Date</th>
+      <th>Quantity</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Species</th>
+      <th>Update</th>
+    </tr>
+    <% @region.sightings.each_with_index do |sighting, index| %>
+      <tr>
+        <td><%= (index+1) %></td>
+        <td><%= sighting.date.strftime("%y/%m/%d") %></td>
+        <td><%= sighting.quantity %></td>
+        <td><%= sighting.latitude %></td>
+        <td><%= sighting.longitude %></td>
+        <td><%= sighting.species.name %></td>
+        <td><a href="/region/<%= @region.id %>/sightings/<%= sighting.id %>/edit">Edit</a>
+            <a href="/region/<%= @region.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <p>Click <a href='/'>here</a> to return to the home page</p>
+  <p>Click <a href='/region/<%= @region.id %>/sightings/new'>here</a> to enter a new <%= @region.name %> sighting.</p>
+
+<% end %>

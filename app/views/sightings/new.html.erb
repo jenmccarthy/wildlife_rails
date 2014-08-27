@@ -19,10 +19,9 @@
   <label for='quantity'>Quantity</label>
   <input id='quantity' name='sighting[quantity]' type='integer'>
   <label for='region'>Region</label>
-  <select name='dropdown'>
-    <!-- <option value="region"> -->
+  <select name='sighting[region_id]' id="region">
     <% Region.all.each do |region| %>
-      <option value="region"><%= region.name %></option>
+      <option value="<%= region.id %>"><%= region.name %></option>
     <% end %>
   </select>
   <button>Add sighting</button>
