@@ -1,0 +1,8 @@
+<h1>Please update <%= @region.name %></h1>
+
+<form action='/regions/<%= @region.id %>' method ='post'>
+  <input name='_method' type='hidden' value='patch'>
+  <label for='region_name'>Name</label>
+  <input id='region_name' name='region[name]' type='text' value='ex: Mt.Hood'>
+  <button>Add Region</button>
+</form>
