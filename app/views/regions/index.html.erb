@@ -1,0 +1,17 @@
+<h1>Wildlife Tracker</h1>
+
+<h4>Here are the regions we have on file:</h4>
+
+<ul>
+  <% @region.each do |region| %>
+    <li><%= region.name %>   <!-- <a href="/region/<%= region.id %>/edit">Edit</a>   <a href="/region/<%= region.id %>" data-method="delete" rel="nofollow">Delete</a>    <a href="/region/<%= region.id %>/sightings">Sighting</a> --></li>
+  <% end %>
+</ul>
+
+<a href="/">
+  <p>Click here to return to the home page<p>
+</a>
+
+<a href="regions/new">
+  <p>Click here to enter a new region<p>
+</a>
