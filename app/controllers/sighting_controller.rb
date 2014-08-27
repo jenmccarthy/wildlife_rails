@@ -36,4 +36,11 @@ class SightingController < ApplicationController
     end
   end
 
+  def delete
+    @sighting = Sighting.find(params[:id])
+    @sighting.destroy
+    render('sightings/destroy.html.erb')
+  end
+
+
 end

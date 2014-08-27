@@ -9,17 +9,19 @@
     <th>Longitude</th>
     <th>Update</th>
   </tr>
-  <tr>
-    <% @species.sightings.each_with_index do |sighting, index| %>
+  <% @species.sightings.each_with_index do |sighting, index| %>
+    <tr>
       <td><%= (index+1) %></td>
       <td><%= sighting.date.strftime("%y/%m/%d") %></td>
       <td><%= sighting.quantity %></td>
       <td><%= sighting.latitude %></td>
       <td><%= sighting.longitude %></td>
-      <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a></td>
-    <% end %>
-  </tr>
+      <td><a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>/edit">Edit</a>
+          <a href="/species/<%= @species.id %>/sightings/<%= sighting.id %>" data-method="delete" rel="nofollow">Delete</a>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
-<p>Click<a href='/species'> here</a> to return to the home page</p>
-<p>Click<a href='/species/<%= @species.id %>/sightings/new'> here</a> to return enter a new <%= @species.name %> sighting.</p>
+<p>Click <a href='/species'>here</a> to return to the home page</p>
+<p>Click <a href='/species/<%= @species.id %>/sightings/new'>here</a> to enter a new <%= @species.name %> sighting.</p>

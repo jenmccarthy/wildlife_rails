@@ -1,0 +1,5 @@
+<h1>Your <%= @sighting.species.name %> sighting on <%= @sighting.date %> has been successfully deleted</h1>
+
+<p>Click<a href='/species'> here</a> to return to the home page</p>
+<p>Click<a href='/species/<%= @sighting.species.id %>/sightings/new'> here</a> to add another <%= @sighting.species.name %> sighting</p>
+
